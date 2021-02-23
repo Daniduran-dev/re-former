@@ -10,3 +10,14 @@
   <input type="submit" value="Create">
 </form> %>
 
+<br><br>
+<%= form_with model: @user do |u| %>
+  <%= u.label :username, "Your Username Here:" %> <br>
+  <%= u.text_field :username, value: 'Pepe' %> <br><br>
+  <%= u.label :email, "Email:" %> <br>
+  <%= u.email_field :email, placeholder: 'email@email.com' %> <br><br>
+  <%= u.label :password, "Password:" %> <br>
+  <%= u.password_field :password %> <br><br>
+  <%= u.submit %>
+<% end %>
+
