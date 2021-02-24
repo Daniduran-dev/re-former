@@ -18,6 +18,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = 'Object was successfully updated'
+      redirect_to action: 'new'
+    else
+      flash[:error] = 'Something went wrong'
+      puts @user.errors.full_messages
+      render 'edit'
+    end
+  end
+
   private
 
   def user_params
